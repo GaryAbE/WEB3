@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Búsqueda de Usuarios</title>
+</head>
+<body>
+  <h1>Búsqueda de Usuarios</h1>
+  <input type="text" id="search" placeholder="Buscar por nombre">
+  <ul id="user-list"></ul>
+
+  <script>
+    let usuarios = [];
+
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(res => res.json())
+      .then(data => {
+        usuarios = data;
+        mostrarUsuarios(usuarios);
+      });
+
+    document.getElementById("search").addEventListener("input", e => {
+      const texto = e.target.value.toLowerCase();
+      const filtrados = usuarios.filter(u => u.name.toLowerCase().includes(texto));
+      mostrarUsuarios(filtrados);
+    });
+
+    function mostrarUsuarios(lista) {
+      const ul = document.getElementById("user-list");
+      ul.innerHTML = "";
+      lista.forEach(user => {
+        const li = document.createElement("li");
+        li.textContent = `${user.name} - ${user.email}`;
+        ul.appendChild(li);
+      });
+    }
+  </script>
+</body>
+</html>

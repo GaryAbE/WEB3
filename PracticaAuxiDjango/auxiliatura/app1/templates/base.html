@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Pagina{% endblock %}</title>
+    {% load static %}
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="{% url 'home' %}">INICIO</a> |
+            <a href="{% url 'saludo' nombre='nom'%}">SALUDO</a> |
+            <a href="{% url 'producto_detalle' pid=23 %}">PRODUCTO 23</a> |
+            <a href="{% url 'registro' %}">REGISTRO</a> |
+            <a href="{% url 'registro2' %}">REGISTRO 2</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <small>copy: {{2025}}</small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+   <h1>MODIFICAR CLIENTE</h1> 
+    <form action="{{ url_for('modificar_cliente', id_cliente = cliente.id_cliente) }}" method="post">
+        <label for="">nombre: </label>
+        <input type="text" name="nombre" id="" value="{{ cliente.nombre }}">
+        <br>
+        <label for="">correo: </label>
+        <input type="email" name="correo" id="" value="{{ cliente.email }}">
+        <br>
+        <button type="submit">Guardar</button>
+        <button type="reset">Cancelar</button>
+    </form>
+
+{% endblock %}

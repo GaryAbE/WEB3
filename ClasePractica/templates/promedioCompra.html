@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+    <h1>Promedio de Compra por Cliente</h1>
+    <table border="1" >
+        <tr>
+            <th>ID cliente</th>
+            <th>cliente</th>
+            <th>compras totales</th>
+            <th>total gastado</th>
+            <th>promedio de compra</th>
+        </tr>
+        {% for promediogach in promediogach%}
+        <tr>
+            <td>{{promediogach.id_cliente}}</td>
+            <td>{{promediogach.nombre}}</td>
+            <td>{{promediogach.total_compras}}</td>
+            <td>{{promediogach.total_gastado}}</td>
+            <td>{{promediogach.promedio_compra}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+{% endblock %}

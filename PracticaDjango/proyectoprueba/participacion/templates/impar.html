@@ -1,0 +1,26 @@
+{%extends 'base.html'%}
+
+{%block content%}
+    <h1>REGISTROS DE EQUIPO</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="">Nombre de Equipo:</label>
+        <input type="text" name="grupo" id=""><br><br>
+        <label for="">Nombre Jefe</label>
+        <input type="text" name="nombreJ" id=""><br><br>
+        <label for="">Membresia</label>
+        <input type="number" name="membresia" id=""><br><br>
+        <label type="text">Cantidad:</label>
+        <input type="number" name="cantidad" id=""><br><br>
+        <button type="submit">Enviar</button>
+        <button type="reset">Cancelar</button>
+    </form>
+    {%if registro%}
+        <h1>Datos Recibidos:</h1>
+        <p>Nombre de Grupo:{{registro.grupo}}</p>
+        <p>nombres:{{registro.nombreJ}}</p>
+        <p>Total: {{registro.membresia}} * {{registro.cantidad}}</p>
+    {%else%}
+    <h2>NO HAY DATOS!!!</h2>
+    {%endif%}
+{%endblock%}

@@ -1,0 +1,14 @@
+<html>
+    <head>
+        <title>Ejemplo</title>
+    </head>
+    <body>
+        <h1>Ejemplo consumo API</h1>
+        <script>
+            fetch("https://jsonplaceholder.typicode.com/comments")
+            .then(respuesta => respuesta.json())
+            .then(respuesta => console.log(respuesta))
+            .catch(err => console.error(err))
+        </script>
+    </body>
+</html>

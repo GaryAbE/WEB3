@@ -1,0 +1,28 @@
+{% extends 'base.html'%}
+{% block title %}Formulario Registro{%endblock%}
+
+{%block content%}
+<h2>Formulario de Registro(En dos vistas)</h2>
+    <form method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Datos Personales</legend>
+            <label for="nombres">Nombre:</label><br>
+            <input type="text" name="nombre" placeholder="Nombre"><br><br>
+            <label for="paterno">Apellido Paterno:</label><br>
+            <input type="text" name="paterno" placeholder="paterno"><br><br>
+            <label for="materno">Apellido Materno:</label><br>
+            <input type="text" name="materno" placeholder="materno"><br><br>
+            <label for="fecha_nac">Fecha Nacimiento:</label><br>
+            <input type="date" name="fecha_nac" placeholder="fecha de nacimiento"><br><br>
+            <label for="ci">Carnet de identidad:</label><br>
+            <input type="date" name="ci" placeholder="ci"><br><br>
+            <label for="correo">Correo Electronico:</label><br>
+            <input type="email" name="correo" placeholder="correo"><br><br>
+            <label for="telefono">Telefono:</label><br>
+            <input type="tel" name="telefono" placeholder="telefono"><br><br>
+            <button type="submit">Enviar</button>
+            <button type="reset">Cancelar</button>
+        </fieldset>
+    </form>
+{%endblock%}

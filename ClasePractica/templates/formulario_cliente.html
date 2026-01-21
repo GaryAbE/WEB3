@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUEVO CLIENTE</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='form.css')}}">
+</head>
+<body>
+    <H1>NUEVO CLIENTE</H1>
+    <form action="{{url_for('nuevo_clientegach')}}" method="post">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre">
+        <br>
+        <label for="email">Email</label>
+        <input type="email" name="email">
+        <br>
+        <button type="submit">Registrar</button>
+        <button type="reset">Cancelar</button>    
+</body>
+</html>

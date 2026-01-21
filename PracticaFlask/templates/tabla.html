@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla</title>
+</head>
+<body>
+        <h1>Tabla del {{ num }}</h1>
+
+    <table border="1">
+        <caption>Tabla de multiplicacion</caption>
+        <tr>
+            <th>Operacion</th><th>Resultado</th>
+        </tr>
+        {% for i in range(1,11) %}
+        <tr>
+            <td>{{ num }} * {{ i }}</td><td> {{ num*i}}</td>
+       </tr>
+        {% endfor %}
+        
+    </table>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% extends 'base.html'%}
+{% block title %}Formulario Registro{%endblock%}
+
+{%block content%}
+<h2>Formulario de Registro(En una sola vista) - resultado</h2>
+    <hr>
+    <div>
+        <h2>Datos Enviados:</h2>
+        <p><strong>Nombre completo</strong>{{ nombre_completo }}</p>
+        <p><strong>Fecha de Nacimiento:</strong> {{ fecha_nac }}</p>
+        <p><strong>Ci:</strong> {{ ci }}</p>
+        <p><strong>Correo Electronico:</strong> {{ correo }}</p>
+        <p><strong>Telefono:</strong> {{ telefono }}</p>
+    </div>
+{%endblock%}

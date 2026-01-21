@@ -1,0 +1,33 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Lista de clientes</title>
+</head>
+<body>
+-->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>LISTA DE CLIENTES</h1>
+           <!---- {"id_cliente":1, "nombre": "ana perez", "email":"ana@gml.com"}-->
+    <ul>
+        {% for cliente in datosClientes: %}
+            <li>
+                {{ cliente.id_cliente }} - {{ cliente.nombre }} - {{ cliente.email}} 
+                <a href="{{ url_for('elimina_cliente', id_cliente = cliente.id_cliente)}}">[Eliminar]</a>
+                <a href="{{ url_for('modificar_cliente', id_cliente = cliente.id_cliente)}}">[Modificar]</a>
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <a href="{{ url_for('nuevo_cliente') }}">Nuevo cliente</a> ||
+    <a href="{{ url_for('nueva_compra') }}">Nueva compra</a>
+
+{% endblock %}
+<!--    
+</body>
+</html>
+-->

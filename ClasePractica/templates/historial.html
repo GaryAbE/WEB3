@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='comprasHistorial.css')}}">
+<h1>Historial de compras</h1>
+<form method="POST">
+    <label>Fecha de inicio:</label>
+    <input type="date" name="iniciogach"required value="{{iniciogach}}"><br>
+    <label>FechaFin:</label>
+    <input type="date" name="fingach" required value="{{fingach}}">
+    <button type="submit">Buscar</button>
+</form>
+<table border="1">
+    <tr>
+      <th>ID_Compra</th>
+        <th>cliente</th>
+       <th>tienda</th>
+        <th>Fecha</th>
+        <th>monto (Bs)</th>
+    </tr>
+    {% for comp in historialgach %}
+    <tr>
+      <td>{{comp.id_compra}}</td>
+       <td>{{comp.cliente }}</td>
+        <td>{{comp.tienda }}</td>
+      <td>{{comp.fecha }}</td>
+        <td>{{comp.monto }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}

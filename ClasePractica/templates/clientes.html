@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static', filename='lista.css')}}">
+{%if clientesgach:%}
+    <h1>Lista clientes</h1>
+    <table>
+        <tr>
+            <th>ID_cliente</th>
+            <th>cliente</th>
+            <th>Email</th>
+            {%if session.get('rol')== 'admin' %}
+            <th>Control</th>
+            <th>Control</th>
+            {%endif%}
+
+        </tr>
+        {%for cliente in clientesgach %}
+        <tr>
+            <td>{{cliente.id_cliente}}</td>
+            <td>{{cliente.nombre}}</td>
+            <td>{{cliente.email}}</td>
+            {%if session.get('rol')== 'admin' %}
+            <td><a href="{{url_for('elimina_clientegach', id_cliente = cliente.id_cliente)}}">[Eliminar]</a></td>
+            <td><a href="{{ url_for('modificar_clientegach', id_cliente = cliente.id_cliente) }}">[Modificar]</a></td>       
+                    
+            {%endif%}
+        </tr>
+        {%endfor%}
+    </table>
+    {% if session.get('rol') == 'operador' and session.get('username') == 'invitado' %}
+   <a href="{{ url_for('historial') }}">Historial de compras</a>
+   {%endif%}
+    {% if session.get('rol') in ['operador'] %}
+   <a href="{{ url_for('nuevo_clientegach') }}">Nuevo cliente</a> 
+   <a href="{{url_for('comprasgach')}}">Compras Registradas por Día</a>
+    {% endif %}
+    {% if session.get('rol') in ['admin'] %}
+    <a href="{{ url_for('nuevo_clientegach') }}">Nuevo cliente</a> ||
+    <a href="{{ url_for('consulta')}}">Ventas Totales</a>||
+    <a href="{{ url_for('monto')}}">mayor monto de compras</a>
+    <a href="{{url_for('promediogach')}}">Promedio de compra por cliente</a>
+
+    {% endif %}
+
+
+{%else:%}
+    no hay datos
+{%endif%}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+body{
+     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     background-color: black;
+     align-items: center;
+}
+
+h1{
+    color: #09ff00;
+   text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+    width: 320px;
+    border-radius: 8px;
+    margin-left: 230px;
+    margin-right: 230px;
+}
+
+input, button {
+    margin: 5px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid#09ff00;
+}
+button {
+    background-color: #09ff00;
+    color:white;
+    cursor:pointer;
+}
+p{
+    color: white;
+}

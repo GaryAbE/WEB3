@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+    <h1>Monto de compras</h1>
+    <table border="1" >
+        <tr>
+            <th>ID_Cliente</th>
+            <th>Nombre</th>
+            <th>Total gastado</th>
+        </tr>
+        {% for monto in montogach%}
+        <tr>
+            <td>{{monto.id_cliente}}</td>
+            <td>{{monto.nombre}}</td>
+            <td>{{monto.total_gastado}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+{% endblock %}

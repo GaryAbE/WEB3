@@ -1,0 +1,11 @@
+{%extends 'base.html'%}
+{%block content%}
+<h1>Cliente REgistrado</h1>
+{%if datos%}
+    nombre: {{datos.nombre}} <br>
+    correo: {{datos.correo}} <br>
+    anioNac: {{datos.anioNac}} <br>
+{%endif%}
+<p></p>
+<a href="{% url 'formulario_cliente' %}">Crear nuevo cliente</a>
+{%endblock%}

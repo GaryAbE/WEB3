@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>LISTADO DE TIENDAS</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>nombre</th>
+            <th>dirección</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for tienda in tiendas %}
+        <tr>
+            <td>{{tienda.id_tienda }}</td>
+            <td>{{tienda.nombre }}</td>
+            <td>{{ tienda.direccion }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

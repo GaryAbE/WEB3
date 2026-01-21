@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{url_for('static',filename='table.css')}}">
+    <h1>Compras registradas por dia</h1>
+    <table border="1" >
+        <tr>
+            <th>Total de compras</th>
+            <th>Monto total</th>
+        </tr>
+        {% for compragach in comprasgach%}
+        <tr>
+            <td>{{compragach.total_compras}}</td>
+            <td>{{compragach.total_monto}}</td>
+        </tr>
+        {%endfor%}
+    </table>
+
+{% endblock %}

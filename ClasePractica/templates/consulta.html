@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static',filename='table.css') }}">
+        <h1>Ventas totales</h1>
+        <table border="1">
+            <tr>
+                <th>ID_Tienda</th>
+                <th>Sucursal</th>
+                <th>Total ventas</th>
+                <th>total compras</th>
+            </tr>
+            {% for tiend in consultagach %}
+            <tr>
+                <td>{{tiend.id_tienda}}</td>
+                <td>{{tiend.nombre}}</td>
+                <td>{{tiend.total_ventas }}</td>
+                <td>{{tiend.total_compras }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+{% endblock %}

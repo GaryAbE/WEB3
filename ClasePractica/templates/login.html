@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%block content%}
+<link rel="stylesheet" href="{{url_for('static',filename='form.css')}}">
+<h1>LOGiN</h1>
+
+<form action="{{url_for('login')}}" method='POST'>
+    <label for="">usuario</label>
+    <input type="text" name="usuario" >
+    <br>
+    <label for="">password</label>
+    <input type="password" name="password">
+    <br>
+    <button type="submit">ACEPTAR</button>
+    <button type="reset">CANCELAR</button>
+</form>
+
+{%endblock%}

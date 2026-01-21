@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>Otro ejemplo</h1>
+        <h3>Lista de usuarios</h3>
+
+        <ul id="miLista"></ul>
+
+        <script>
+            const lista = document.getElementById("miLista");
+
+            fetch("https://jsonplaceholder.typicode.com/users")
+            .then(respuesta => respuesta.json())
+            .then(usuarios => {
+                usuarios.forEach( usuario => {
+                    const li = document.createElement("li");
+                    li.textContent = `${usuario.name} ${usuario.company.name}`;
+                    lista.appendChild(li);
+                });
+            })
+            .catch(error => console.log("Error: ",error));
+        </script>
+    </body>
+</html>
