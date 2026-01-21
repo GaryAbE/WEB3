@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+    <body>
+        <h1>Ejemplo de integracion de daatos API en HTML</h1>
+        <table id="lista" border="1">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>usuario</th>
+                    <th>correo</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <script>
+            const lista = document.querySelector("#lista tbody");
+            let URL = "http://jsonplaceholder.typicode.com/users/";
+            for(let i=1;i<=10;i++){
+                fetch(URL + i)
+                .then(respuesta => respuesta.json())
+                .then(datos => mostrarDatos(datos))
+                .catch(err => console.error(err));
+            }
+            function mostrarDatos(datos){
+                const tr = document.createElement("tr");
+                tr.innerHTML=`<td>${datos.id}</td><td>${datos.username}</td><td>${datos.email}</td>`;
+                lista.appendChild(tr);
+            }
+
+           
+        </script>
+        
+
+    </body>
+</html>

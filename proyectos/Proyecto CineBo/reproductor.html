@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineBo-Peliculas Bolivianas</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <script src="js/bootstrap.bundle.js"></script>
+</head>
+
+<body class="bg-dark text-white px-5">
+
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid ">
+      <a class="navbar-brand text-white" href="Index.html">
+        <h1>CineBo</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <select class="form-select mx-0" aria-label="Default select example">
+              <option selected>GENEROS</option>
+              <option value="1">Drama</option>
+              <option value="2">Accion</option>
+              <option value="3">Romance</option>
+              <option value="4">Animacion</option>
+              <option value="5">Aventuras</option>
+              <option value="6">Comedia</option>
+              <option value="7">Documental</option>
+            </select>
+          </li>
+          <li class="nav-item">
+            <select class="form-select mx-1" aria-label="Default select example">
+              <option selected>IDIOMAS</option>
+              <option value="1">Español</option>
+              <option value="2">Aymara</option>
+              <option value="3">Quechua</option>
+            </select>
+          </li>
+          <li class="nav-item dropdown">
+            <select class="form-select mx-2" aria-label="Default select example">
+              <option selected>MÁS</option>
+              <option value="1">Directores</option>
+              <option value="2">Actores</option>
+              <option value="3">Descargas</option>
+            </select>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+          <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+          <button class="btn btn-outline-light" type="submit"><i class="bi bi-person-circle"></i></button>
+        </form>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div class="row">
+    <div class="col-9 mt-5">
+      <h1 class="ms-4">PELICULAS</h1>
+      <button type="button" class="btn btn-light mb-3 ms-4">Descargar</button>
+      <div class="bg-secondary text-dark d-flex justify-content-center align-items-center mb-4 ms-4"
+        style="height: 385px; width: 685px;">
+        <video width="100%" height="100%" controls>
+          <source src="videos/prueba.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+    <div class="col-3 text-white mt-5">
+      <h1 class="mt-2" style="font-size: medium;">LO MAS VISTO</h1>
+      <div class="row row-cols-2 me-5 mt-4">
+        <div class="col mb-3">
+          <img src="imagenes/98s.png" class="img-fluid">
+        </div>
+        <div class="col mb-3">
+          <img src="imagenes/Soren.jpg" class="img-fluid">
+        </div>
+        <div class="col mb-3">
+          <img src="imagenes/elladrondeperr.jpg" class="img-fluid">
+        </div>
+        <div class="col mb-3">
+          <img src="imagenes/QMALL.jpg" class="img-fluid">
+        </div>
+        <div class="col mb-3">
+          <img src="imagenes/sueño.jpg" class="img-fluid">
+        </div>
+        <div class="col mb-3">
+          <img src="imagenes/Chuloman.jpeg" class="img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>practica1</title>
+</head>
+<style type="text/css">
+	.container{
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+	}
+	.container div{	
+		border: 2px solid black;
+		border-radius: 20px;
+		padding:10px;
+		
+
+	}
+	img {
+		height: 150px;
+		width: 200px;
+	}
+
+</style>
+<body>
+	<h1>PRACTICA1</h1>
+	<div class="container" id="lista">
+	
+	</div>
+
+	<script type="text/javascript">
+		const lista = document.querySelector("#lista");
+		let URL = "https://dummyjson.com/products";
+
+		for (var i = 1; i <= 194; i++) {
+			fetch(URL+"/"+ i)
+			.then(respuesta => respuesta.json())
+			.then(datos => mostrarDatos(datos))
+			.catch(err => console.error(err));
+		}
+		
+		function mostrarDatos(datos){
+			const div = document.createElement("div");
+			div.classList.add("producto");
+			div.innerHTML=`<h3>${datos.title}</h3><p><b>Categoria: </b>${datos.categoria}</p><p><b>Precio: </b>${datos.price}</p><img src=${datos.images[0]}>`;
+			lista.appendChild(div);
+		}
+	</script>
+</body>
+</html>

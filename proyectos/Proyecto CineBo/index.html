@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CineBo-Peliculas Bolivianas</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+  <script src="js/bootstrap.bundle.js"></script>
+   <style>
+    body {
+      background-color: #121212;
+      color: #fff;
+    }
+
+    .navbar {
+      background-color: #000;
+    }
+
+    .navbar-brand h1 {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .form-select {
+      background-color: #222;
+      color: #fff;
+      border: 1px solid #555;
+    }
+
+    .btn-outline-light:hover {
+      background-color: #0d6efd;
+      color: #fff;
+    }
+
+    .banner {
+      background-color: #198754;
+      padding: 12px;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .carousel-inner img {
+      height: 350px;
+      object-fit: cover;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 50%;
+    }
+
+    h2 {
+      font-weight: 700;
+    }
+
+    .btn-light {
+      font-weight: 600;
+    }
+
+    .movie-gallery img {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .movie-gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+  </style>
+</head>
+
+<body class="bg-dark text-white px-5">
+
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid ">
+      <a class="navbar-brand text-white" href="Index.html">
+        <h1>CineBo</h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+        aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <select class="form-select mx-0" aria-label="Default select example">
+              <option selected>GENEROS</option>
+              <option value="1">Drama</option>
+              <option value="2">Accion</option>
+              <option value="3">Romance</option>
+              <option value="4">Animacion</option>
+              <option value="5">Aventuras</option>
+              <option value="6">Comedia</option>
+              <option value="7">Documental</option>
+            </select>
+          </li>
+          <li class="nav-item">
+            <select class="form-select mx-1" aria-label="Default select example">
+              <option selected>IDIOMAS</option>
+              <option value="1">Español</option>
+              <option value="2">Aymara</option>
+              <option value="3">Quechua</option>
+            </select>
+          </li>
+          <li class="nav-item dropdown">
+            <select class="form-select mx-2" aria-label="Default select example">
+              <option selected>MÁS</option>
+              <option value="1">Directores</option>
+              <option value="2">Actores</option>
+              <option value="3">Descargas</option>
+            </select>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+          <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
+          <button class="btn btn-outline-light" type="submit"><i class="bi bi-person-circle"></i></button>
+        </form>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="bg-success me-2 ms-2 py-2 my-3" style="text-align: center;"> BOLIVIANAS EN HD PARA VER ONLINE O
+    DESCARGAR POR MEGA DRIVE Y MAS EN VER PELICULAS BOLIVIANAS ONLINE</div>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner ms-2" style="height: 350px;">
+      <div class="carousel-item active">
+        <img src="imagenes/elvisitjpg.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="imagenes/SorenCorto_1400x498.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="imagenes/98secondscorto.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <div class="d-flex justify-content-between py-2">
+    <h2 class="ms-2">PELICULAS RECIENTES</h2> <button type="button" class="btn btn-light">VER TODO</button>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/elladrondeperr.jpg" class="img-fluid mx-2 rounded" style="width: 260px;">
+      </a>
+    </div>
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/reflejos.jpeg" class="img-fluid mx-1 rounded" style="width: 260px; height: 325px;">
+      </a>
+    </div>
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/sueño.jpg" class="img-fluid mx-1 rounded" style="width: 250px; height: 325px;">
+      </a>
+    </div>
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/98s.png" class="img-fluid mx-1 rounded" style="width: 260px;">
+      </a>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/Soren.jpg" class="img-fluid mx-2 rounded " style="width: 260px;">
+      </a>
+    </div>
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/Mar.png" class="img-fluid mx-1 rounded" style="width: 260px; height: 325px;">
+      </a>
+    </div>
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/reflejos.jpeg" class="img-fluid mx-1 rounded" style="width: 250px; height: 325px;">
+      </a>
+    </div>
+    <div class="col">
+      <a href="reproductor.html">
+        <img src="imagenes/sueño.jpg" class="img-fluid mx-1 rounded" style="width: 260px;">
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>practica1</title>
+</head>	
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		background-color: #a0abdd;
+		font-family: Arial, sans-serif;
+	}
+	.caratula {
+		width: 60%;
+		margin: 10px auto;
+		padding: 10px 20px;
+		background-color: white;
+		text-align: center;
+		font-family: arial;
+		font-weight: bold;
+	}
+	.caratula img {
+		width: 50%;
+		min-width: 300px;
+		margin: 0 auto;
+	}
+	.caratula p, .caratula ul {
+		text-align: left;
+		padding-left: 25%;
+	}
+	h1 {
+		width: 100%;
+		text-align: center;
+		color: navy;
+		font-family: 'Georgia', 'Times New Roman', serif;
+	    font-style: italic;
+		font-size: 2.5rem;        
+		letter-spacing: 2px;   
+		text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+		margin-bottom: 20px;
+	}
+	img {
+		width: 100%;
+	}
+	.container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+		justify-content: space-evenly;
+	}
+	.container div {
+		border: 2px solid;
+		flex: 0 0 calc(16.66% - 15px); 
+		max-width: calc(16.66% - 15px);
+		min-width: 200px;
+		padding: 10px;
+		box-sizing: border-box;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+		background-color: lightblue;
+		border-radius: 15px;
+	}
+	.container div:hover {
+		transform: scale(1.05);
+		box-shadow: 0 0 20px rgba(0, 176, 240, 0.7);
+	}
+	.toast {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		background-color: rgba(0, 128, 0, 0.9); 
+		color: white;
+		padding: 15px 25px;
+		border-radius: 8px;
+		box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+		font-family: Arial, sans-serif;
+		font-size: 1rem;
+		opacity: 0;
+		transform: translateY(50px);
+		transition: opacity 0.5s ease, transform 0.5s ease;
+		z-index: 1000;
+	}
+	.toast.show {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	@media (max-width: 800px) {
+		.caratula {
+			width: 100%;
+			padding: 10px 0;
+		}
+	}
+</style>
+<body>
+	<section class="caratula">
+		<h3>UNIVERSIDAD MAYOR DE SAN ANDRES</h3>
+		<h3>CARRERA DE INFORMATICA</h3>
+		<h2>PROGRAMACION WEB III</h2>
+		<h2>INF-133</h2>
+		<div id="logo"> </div>
+		<h2>TAREA NRO 2</h2>
+		<h2>EJERCICIO: PRACTICA 1 CONSUMIR API</h2>
+		<p>Estudiantes:</p>
+		<ul>	
+			<li>Canaviri Huanca Gary Abel           C.I.: 13921031</li>
+			<li>Mamani Calle Alex                   C.I.: 13280115</li>
+			<li>Oliver Saravia Gerson Adrian        C.I: 7362463</li>
+			<li>Paredes Quino Noe Roger             C.I : 10076714</li>
+			<li>Quisbert Manrriquez Miguel Vicente  C.I.: 10075850</li>
+			<li>Yujra Huanca Joel                   C.I.: 10916168</li>
+		</ul>
+		<p>
+		Docente: Lic. Marcelo Aruquipa <br>
+		Fecha: 23 de agosto de 2025 <br>
+		</p>
+		<br>
+		<br>
+		La Paz-Bolivia <br>
+		2025
+	</section>
+	<h1>PRODUCTOS 2025 - PROGRAMACION WEB III</h1>
+
+	<div class="container" id="lista">
+	</div>
+
+</body>
+<script type="text/javascript">
+	document.getElementById("logo").innerHTML=`<img src="http://informatica.umsa.bo/static/img/logo_ingo.png">`;
+
+	const lista = document.querySelector("#lista");
+	let URL = "https://dummyjson.com/products";
+	
+
+	let AltPrecio=0;
+
+	for (var i = 1; i <= 194; i++) {
+		fetch(URL+"/"+ i)
+		.then(respuesta => respuesta.json())
+		.then(datos => mostrarAltoPrecio(datos))
+		.catch(err => console.error(err));
+	}
+	function mostrarAltoPrecio(datos){
+		if(datos.price>AltPrecio){
+			AltPrecio=datos.price;
+		}
+	}
+	for (var i = 1; i <= 194; i++) {
+		fetch(URL+"/"+ i)
+		.then(respuesta => respuesta.json())
+		.then(datos => mostrarDatos(datos))
+		.catch(err => console.error(err));
+	}
+	function mostrarDatos(datos){
+		if(datos.images.length>=0){
+		const div = document.createElement("div");
+		div.innerHTML=`
+			<h3>${datos.title}</h3>
+			<p><b>Categoría: </b>${datos.category}</p>
+			<p><b>Precio: </b>${datos.price}</p>
+			<p><b>Brand:  </b>${datos.brand}</p>
+			<img src="${datos.images[0]}">
+		`;
+		div.addEventListener("click", () => {
+			mostrarToast(`Gracias por su compra de "${datos.title}" por $${datos.price}`);
+		});
+		lista.appendChild(div);
+		}	
+	}
+	function mostrarToast(mensaje){
+		const toast = document.createElement("div");
+		toast.className = "toast";
+		toast.textContent = mensaje;
+		document.body.appendChild(toast);
+		setTimeout(() => toast.classList.add("show"), 100);
+		setTimeout(() => {
+			toast.classList.remove("show");
+			setTimeout(() => document.body.removeChild(toast), 500);
+		}, 3000);
+	}
+	
+</script>
+</html>
